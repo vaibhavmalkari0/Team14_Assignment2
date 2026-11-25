@@ -222,11 +222,90 @@ static void cmdInfo(Stream &s) {
 }
 
 static void cmdSave(Stream &s) {
-  // TODO Mission 2: write storeBuf (storeLen bytes) to the file REC_PATH with LittleFS,
-  // so the recording survives a power cut. Reply  OK SAVE n=<bytes> us=<time taken> crc=<crc32 hex>
-  // Clues: LittleFS.open(REC_PATH, "w"), f.write(ptr, len) in chunks, f.close(), crc32(storeBuf, storeLen).
-  // Before you write: does INFO's fs_total leave room? If not, which Tools settings decide it?
-  s.printf("ERR SAVE not written yet\n");
+
+  // Check filesystem availability
+  if (!fsOk) {
+    s.printf("ERR SAVE filesystem unavailable\n");
+    return;
+  }
+
+  // Check whether audio is available
+  if (storeBuf == nullptr || storeLen == 0) {
+    s.printf("ERR SAVE no recording\n");
+    return;
+  }
+
+  // Start measuring save time
+  uint32_t startUs = micros();
+
+  // Open recording file for writing
+  File f = LittleFS.open(REC_PATH, "w");
+
+  if (!f) {
+    s.printf("ERR SAVE cannot open file\n");
+    return;
+  }
+
+  const size_t CHUNK_SIZE = 4096;
+  size_t written = 0;
+
+  // Write recording in chunks
+  while (written < storeLen) {
+
+    size_t remaining = storeLen - written;
+
+    size_t chunk = remaining > CHUNK_SIZE
+                     ? CHUNK_SIZE
+                     : remaining;
+
+    size_t n = f.write(storeBuf + written, chunk);
+
+    if (n != chunk) {
+      f.close();
+      LittleFS.remove(REC_PATH);
+
+      s.printf("ERR SAVE incomplete write\n");
+      return;
+    }
+
+    written += n;
+
+    yield();
+  }
+
+  // Flush and close the file
+  f.flush();
+  f.close();
+
+  // Measure elapsed time
+  uint32_t elapsedUs = micros() - startUs;
+
+  // Verify saved file size
+  File check = LittleFS.open(REC_PATH, "r");
+
+  if (!check) {
+    s.printf("ERR SAVE verification failed\n");
+    return;
+  }
+
+  size_t savedSize = check.size();
+  check.close();
+
+  if (savedSize != storeLen) {
+    s.printf("ERR SAVE size mismatch\n");
+    return;
+  }
+
+  // Calculate original recording CRC32
+  uint32_t crc = crc32(storeBuf, storeLen);
+
+  // Send success response
+  s.printf(
+    "OK SAVE n=%u us=%u crc=%08x\n",
+    (unsigned)written,
+    (unsigned)elapsedUs,
+    (unsigned)crc
+  );
 }
 
 static void cmdDump(Stream &s, const char *where, bool crcOnly) {

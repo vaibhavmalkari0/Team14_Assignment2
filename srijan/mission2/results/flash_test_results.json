@@ -1,0 +1,72 @@
+{
+    "team": 14,
+    "clips": 144,
+    "sampling_rate": 16000,
+    "format": "int16",
+    "scale": 1.0,
+    "total_samples": 2304000,
+    "payload_bytes": 4608000,
+    "laptop_crc": 1347580244,
+    "laptop_crc_hex": "50527154",
+    "psram_crc": {
+        "where": "psram",
+        "n": 4608000,
+        "crc": 1347580244
+    },
+    "flash_crc": {
+        "where": "flash",
+        "n": 4608000,
+        "crc": 1347580244
+    },
+    "save_response": {
+        "n": 4608000,
+        "us": 10317019,
+        "crc": 1347580244
+    },
+    "save_time_seconds": 10.317019,
+    "flash_write_bytes_per_second": 446640.64299968816,
+    "stream_summary": {
+        "why": "end",
+        "frames_ok": 7201,
+        "bad_crc": 0,
+        "bad_len": 0,
+        "seq_gaps": 0,
+        "dup": 0,
+        "samples": 2304000,
+        "stored": 4608000,
+        "where": "psram",
+        "store_full": 0,
+        "features": 0,
+        "max_us": 0,
+        "avg_us": 0,
+        "uart_errors": 0,
+        "ms": 143989
+    },
+    "initial_info": {
+        "cpu_mhz": 240,
+        "heap_free": 336168,
+        "heap_largest": 278516,
+        "psram_size": 8388608,
+        "psram_free": 8351220,
+        "psram_largest": 8257524,
+        "flash_chip": 16777216,
+        "fs_total": 8388608,
+        "fs_used": 8192,
+        "stored": 0,
+        "where": "none"
+    },
+    "final_info": {
+        "cpu_mhz": 240,
+        "heap_free": 335844,
+        "heap_largest": 278516,
+        "psram_size": 8388608,
+        "psram_free": 3632624,
+        "psram_largest": 3538932,
+        "flash_chip": 16777216,
+        "fs_total": 8388608,
+        "fs_used": 4628480,
+        "stored": 4608000,
+        "where": "psram"
+    },
+    "status": "PASS"
+}

@@ -1,0 +1,4 @@
+duration_seconds,required_bytes,stored_bytes,samples,bad_crc,sequence_gaps,uart_errors,laptop_crc,board_crc,status
+10,320000,320000,160000,0,0,0,406016285,406016285,PASS
+60,1920000,1920000,960000,0,0,0,3596012654,3596012654,PASS
+144,4608000,4608000,2304000,0,0,0,1347580244,1347580244,PASS

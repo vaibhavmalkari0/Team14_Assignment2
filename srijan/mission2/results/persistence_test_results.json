@@ -1,0 +1,30 @@
+{
+    "team": 14,
+    "sampling_rate": 16000,
+    "format": "int16",
+    "scale": 1.0,
+    "original_bytes": 4608000,
+    "retrieved_bytes": 4608000,
+    "original_crc32": "50527154",
+    "retrieved_crc32": "50527154",
+    "retrieval_time_seconds": 50.35776970000006,
+    "retrieval_speed_bytes_per_second": 91505.24392663868,
+    "length_match": true,
+    "crc_match": true,
+    "mismatched_bytes": 0,
+    "exact_byte_match": true,
+    "board_info_after_power_cycle": {
+        "cpu_mhz": 240,
+        "heap_free": 335844,
+        "heap_largest": 278516,
+        "psram_size": 8388608,
+        "psram_free": 8351220,
+        "psram_largest": 8257524,
+        "flash_chip": 16777216,
+        "fs_total": 8388608,
+        "fs_used": 4628480,
+        "stored": 0,
+        "where": "none"
+    },
+    "status": "PASS"
+}
