@@ -237,6 +237,8 @@ Sumadhwa must give Srijan:
 - Ask an LLM how long a 512-point FFT takes on an ESP32-S3.
 - Record the question and answer in the LLM log.
 - Measure starter feature compute time.
+- **Resolve Vaibhav's incomplete feature-return test before reporting feature throughput:** reproduce it on COM at 921600 baud using a one-second Team 14 clip, 16 kHz int16, `feat=True`, `store="none"`, `speed=0`, `win=480`, `hop=320`, `nfft=512`, `mels=40`, `mfcc=0`, and `samples_per_packet=320. The initial result was 6 of 49 frames, 43 lost, `bad_crc_back=0`, and no board summary after 11.416 s.
+- Re-run that case and confirm all 49 expected frames are returned (`lost_features == 0`) and the board summary is present. Keep the result marked incomplete until both checks pass; only then measure and report feature-return bytes per second.
 - Count calls to `cosf` and `sinf` in the starter DFT.
 - Optimise [features.h](/C:/Users/vaibh/Downloads/projects-ong/edge_ai_assignment2/doorbell_board_starter/features.h).
 - Consider a radix-2 FFT or twiddle-factor table.
@@ -282,6 +284,7 @@ Srijan must give Karthik:
 - [ ] Arduino Tools settings
 - [ ] Flash persistence and CRC evidence
 - [ ] Before-and-after feature timing
+- [ ] Reproduced and resolved the incomplete 16 kHz int16 feature-return case: 49/49 frames and board summary present
 - [ ] Board-versus-NumPy 0.05 dB check
 - [ ] 40-band and 13-MFCC timing
 - [ ] USB versus COM real-time test
