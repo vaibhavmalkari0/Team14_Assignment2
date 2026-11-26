@@ -1,0 +1,58 @@
+{
+  "baseline_i16": {
+    "fs": 16000,
+    "fmt": "i16",
+    "scale": 1.0,
+    "reference_antialias": true,
+    "board_antialias": true,
+    "win": 480,
+    "hop": 320,
+    "nfft": 512,
+    "mels": 40,
+    "frames_per_clip": 49,
+    "clipped_input_samples": 0,
+    "clips_with_clipping": 0
+  },
+  "int8_s1": {
+    "fs": 16000,
+    "fmt": "i8",
+    "scale": 1.0,
+    "reference_antialias": true,
+    "board_antialias": true,
+    "win": 480,
+    "hop": 320,
+    "nfft": 512,
+    "mels": 40,
+    "frames_per_clip": 49,
+    "clipped_input_samples": 0,
+    "clips_with_clipping": 0
+  },
+  "int8_s05": {
+    "fs": 16000,
+    "fmt": "i8",
+    "scale": 0.5,
+    "reference_antialias": true,
+    "board_antialias": true,
+    "win": 480,
+    "hop": 320,
+    "nfft": 512,
+    "mels": 40,
+    "frames_per_clip": 49,
+    "clipped_input_samples": 2860,
+    "clips_with_clipping": 78
+  },
+  "8k_unfiltered_i16": {
+    "fs": 8000,
+    "fmt": "i16",
+    "scale": 1.0,
+    "reference_antialias": true,
+    "board_antialias": false,
+    "win": 240,
+    "hop": 160,
+    "nfft": 512,
+    "mels": 40,
+    "frames_per_clip": 49,
+    "clipped_input_samples": 0,
+    "clips_with_clipping": 0
+  }
+}
