@@ -1,0 +1,46 @@
+{
+  "team": 14,
+  "clip_count": 144,
+  "classes": [
+    "on",
+    "off",
+    "stop",
+    "go",
+    "_unknown",
+    "_silence"
+  ],
+  "samples_per_clip": 16000,
+  "total_samples": 2304000,
+  "raw_int16_bytes": 4608000,
+  "data_packets": 7200,
+  "frames_ok_including_end": 7201,
+  "full_stream_feature_frames": 7199,
+  "frames_straddling_clip_boundaries": 143,
+  "labelled_frames_after_straddle_drop": 7056,
+  "expected_labelled_frames_per_class": 1176,
+  "skip_packets": [
+    10,
+    11,
+    200
+  ],
+  "skip_total_missing_samples": 960,
+  "skip_expected_host_data_packets": 7197,
+  "skip_expected_board_frames_including_end": 7198,
+  "skip_received_samples": 2303040,
+  "baseline_stream_seconds": 144.0,
+  "stream_settings": {
+    "fs": 16000,
+    "fmt": "i16",
+    "scale": 1.0,
+    "antialias": true,
+    "win": 480,
+    "hop": 320,
+    "nfft": 512,
+    "mels": 40,
+    "mfcc": 0,
+    "feat": true,
+    "store": "none",
+    "speed": 1.0,
+    "samples_per_packet": 320
+  }
+}
